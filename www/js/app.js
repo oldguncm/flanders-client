@@ -7,18 +7,46 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
+.run(function($rootScope) {
+  $rootScope.network = window.network || 'Hackathon';
+
+  $rootScope.messages = [];
+
+  function pollMessages() {
+    $.ajax({
+      url: 'http://flanders.herokuapp.com/messages',
+      cache: false
+    }).done(function(results) {
+      $rootScope.messages = results;
+    });
+  }
+
+  function continuousPoll() {
+    setTimeout(function() {
+      pollMessages();
+      continuousPoll();
+    }, 300);
+  }
+
+  continuousPoll();
+})
+
 .run(function($ionicPlatform) {
+
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
 
-    Discovery.getBroadcastAddress(function(network) {
-      alert(network);
-    });
-
     if(window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
+
+    if(window.cordova && window.cordova.plugins.Keyboard) {
+      Discovery.getBroadcastAddress(function(network) {
+        window.network = network;
+      });
+    }
+
     if(window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
@@ -84,6 +112,5 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
-
 });
 
