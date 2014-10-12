@@ -24,6 +24,10 @@
   font-family: 'Varela Round', sans-serif;
 }
 
+input {
+  font-size: 16px !important;
+}
+
 .tabs {
   height: 75px;
   padding-top: 15px;
@@ -36,6 +40,16 @@
   margin: 10px 0px;
   border-radius: 3px;
   background-image: linear-gradient(#fafafa, #ffffff);
+}
+
+.compose {
+  position: absolute;
+  bottom: 75px;
+  width: 100%;
+  padding: 30px;
+}
+.compose input {
+  height: 60px;
 }
 
 /*# sourceMappingURL=style.css.map */
