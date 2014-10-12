@@ -45,6 +45,10 @@ angular.module('starter.controllers', [])
 .controller('FriendsCtrl', function($scope, $rootScope, $ionicScrollDelegate, Friends) {
   // $scope.friends = Friends.all();
 
+  setTimeout(function() {
+    $ionicScrollDelegate.scrollBottom(true);
+  }, 1000);
+
   $('.compose input').focusin(function() {
     $('.tabs').css('height', '0px');
     $('.compose').css('bottom', '0px');
