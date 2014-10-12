@@ -11,12 +11,22 @@ angular.module('starter.controllers', [])
       }
     }).done(function(results) {
       if (results.statusCode === 200) {
-        $rootScope.currentUser = {
-          username: username,
-          token: JSON.parse(results.body)
-        }
+        var token = JSON.parse(results.body)
 
-        $location.path('/friends');
+        $.ajax({
+          type: 'POST',
+          url: 'http://flanders.herokuapp.com/info',
+          data: {
+            access_token: $rootScope.currentUser.token.access_token
+          }
+        }).done(function(results) {
+          if (results.statusCode === 200) {
+            $rootScope.currentUser = JSON.parse(results.body);
+            $location.path('/friends');
+          } else {
+            alert('Authentication failure');
+          }
+        });
       } else {
         alert('Authentication failure');
       }
