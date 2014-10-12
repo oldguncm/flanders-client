@@ -2,8 +2,25 @@ angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope, $rootScope, $location) {
   $scope.login = function(username, password) {
-    $rootScope.username = username;
-    $location.path('/friends');
+    $.ajax({
+      type: 'POST',
+      url: 'http://flanders.herokuapp.com/login',
+      data: {
+        username: username,
+        password: password
+      }
+    }).done(function(results) {
+      if (results.statusCode === 200) {
+        $rootScope.currentUser = {
+          username: username,
+          token: JSON.parse(results.body)
+        }
+
+        $location.path('/friends');
+      } else {
+        alert('Authentication failure');
+      }
+    });
   }
 
   $scope.anonymous = function() {
