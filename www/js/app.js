@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
-.run(function($rootScope) {
+.run(function($rootScope, $ionicScrollDelegate) {
   $rootScope.network = window.network || 'Hackathon';
 
   $rootScope.messages = [];
@@ -19,6 +19,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     }).done(function(results) {
       if ($rootScope.messages.length !== results.length) {
         $rootScope.messages = results;
+        setTimeout(function() {
+          $ionicScrollDelegate.scrollBottom(true);
+        }, 200);
       }
     });
   }

@@ -42,7 +42,7 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('FriendsCtrl', function($scope, $rootScope, Friends) {
+.controller('FriendsCtrl', function($scope, $rootScope, $ionicScrollDelegate, Friends) {
   // $scope.friends = Friends.all();
 
   $('.compose input').focusin(function() {
@@ -57,6 +57,7 @@ angular.module('starter.controllers', [])
 
   $scope.addMessage = function(event) {
     event.preventDefault();
+    var self = this;
 
     $.ajax({
       type: 'POST',
@@ -67,7 +68,8 @@ angular.module('starter.controllers', [])
       }
     }).done(function(results) {
       $(event.target).find('input').val('');
-      $('body').focus();
+      document.activeElement.blur();
+      $('input').blur();
     });
   };
 
