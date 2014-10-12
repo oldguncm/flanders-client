@@ -23,8 +23,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
   function continuousPoll() {
     setTimeout(function() {
-      pollMessages();
-      continuousPoll();
+      $rootScope.$apply(function() {
+        pollMessages();
+        continuousPoll();
+      });
     }, 300);
   }
 
