@@ -7,7 +7,8 @@ angular.module('starter.controllers', [])
       url: 'http://flanders.herokuapp.com/login',
       data: {
         username: username,
-        password: password
+        password: password,
+        network: $rootScope.network
       }
     }).done(function(results) {
       if (results.statusCode === 200) {
@@ -75,8 +76,9 @@ angular.module('starter.controllers', [])
       type: 'POST',
       url: 'http://flanders.herokuapp.com/messages',
       data: {
-        owner: this.currentUser ? this.currentUser : 'Anonymous',
-        message: $(event.target).find('input').val()
+        owner: this.currentUser ? this.currentUser.user_id : 0,
+        message: $(event.target).find('input').val(),
+        network: $rootScope.network
       }
     }).done(function(results) {
       $(event.target).find('input').val('');
