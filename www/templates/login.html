@@ -1,11 +1,11 @@
 <ion-view title="{{network}}">
-  <ion-content class="padding">
+  <ion-content class="padding login">
     <input ng-model="username" name="username" placeholder="username" value/>
     <input ng-model="password" name="password" placeholder="password" type="password"/>
-    <button ng-click="login(username, password)" type="button">
+    <button class="btn btn-default salesforce" ng-click="login(username, password)" type="button">
       Login with Salesforce
     </button>
-    <button ng-click="anonymous()" type="button">
+    <button class="btn btn-default" ng-click="anonymous()" type="button">
       Skip
     </button>
   </ion-content>

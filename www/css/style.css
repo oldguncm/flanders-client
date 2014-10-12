@@ -1,3 +1,10 @@
+.login button {
+  height: 60px;
+}
+.login button.salesforce {
+  background-color: #28b7e5;
+}
+
 .list {
   padding: 0px 30px;
 }

@@ -121,8 +121,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     });
 
-  $urlRouterProvider.when('/dash', ['$state', function ($state) {
-    $state.transitionTo('tab.dash');
+  $urlRouterProvider.when('/friends', ['$state', function ($state) {
+    $state.transitionTo('tab.friends');
   }]);
 
   // if none of the above states are matched, use this as the fallback
