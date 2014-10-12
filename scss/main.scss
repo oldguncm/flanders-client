@@ -48,12 +48,5 @@ $feedPadding: 30px;
   input {
     float: left;
     height: $inputHeight;
-    width: calc(100% - 120px);
-  }
-
-  button {
-    float: right;
-    height: $inputHeight;
-    width: 110px;
   }
 }

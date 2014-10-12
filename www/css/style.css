@@ -8,7 +8,7 @@
   margin: 20px 0px;
 }
 .login .btn-wrapper {
-  width: 260px;
+  width: 300px;
   margin: 0px auto;
 }
 .login button {
@@ -61,12 +61,6 @@ input, button {
 .compose input {
   float: left;
   height: 60px;
-  width: calc(100% - 120px);
-}
-.compose button {
-  float: right;
-  height: 60px;
-  width: 110px;
 }
 
 /*# sourceMappingURL=style.css.map */

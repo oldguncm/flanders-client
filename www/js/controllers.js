@@ -42,7 +42,7 @@ angular.module('starter.controllers', [])
 .controller('DashCtrl', function($scope) {
 })
 
-.controller('FriendsCtrl', function($scope, Friends) {
+.controller('FriendsCtrl', function($scope, $rootScope, Friends) {
   // $scope.friends = Friends.all();
 
   $('.compose input').focusin(function() {
@@ -54,6 +54,23 @@ angular.module('starter.controllers', [])
     $('.tabs').css('height', '75px');
     $('.compose').css('bottom', '75px');
   });
+
+  $scope.addMessage = function(event) {
+    event.preventDefault();
+
+    $.ajax({
+      type: 'POST',
+      url: 'http://flanders.herokuapp.com/messages',
+      data: {
+        owner: this.currentUser ? this.currentUser : 'Anonymous',
+        message: $(event.target).find('input').val()
+      }
+    }).done(function(results) {
+      alert(results);
+    });
+  };
+
+  $('.compose form').submit($scope.addMessage.bind($rootScope));
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
