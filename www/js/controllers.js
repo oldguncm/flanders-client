@@ -77,6 +77,16 @@ angular.module('starter.controllers', [])
   setTimeout(function() {
     $('.ionic-scroll.has-header.has-tabs').css('bottom', '74px');
   }, 100);
+
+  $scope.email = function(user) {
+    var matches = /.+@([^.]+).+/.exec(user.email);
+
+    if (matches && ['gmail'].indexOf(matches[1]) === -1) {
+      return '(' + matches[1] + ')  ';
+    }
+
+    return '';
+  }
 })
 
 .controller('FriendsCtrl', function($scope, $rootScope, $ionicScrollDelegate, Friends) {

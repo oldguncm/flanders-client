@@ -4,7 +4,7 @@
       <ion-item ng-repeat="user in users" type="item-text-wrap">
         <img src="http://spacelist.ca/assets/v2/placeholder-user.jpg">
         <h2>{{user.name}}</h2>
-        <h4>{{user.email}}</h4>
+        <h4>{{email(user)}}</h4>
       </ion-item>
     </div>
   </ion-content>
