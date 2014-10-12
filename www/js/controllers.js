@@ -52,11 +52,19 @@ angular.module('starter.controllers', [])
   $('.compose input').focusin(function() {
     $('.tabs').css('height', '0px');
     $('.compose').css('bottom', '0px');
+    $('.ionic-scroll.has-header.has-tabs').css('bottom', '120px');
+    setTimeout(function() {
+      $ionicScrollDelegate.scrollBottom(true);
+    }, 100);
   });
 
   $('.compose input').focusout(function() {
     $('.tabs').css('height', '75px');
     $('.compose').css('bottom', '75px');
+    $('.ionic-scroll.has-header.has-tabs').css('bottom', '195px');
+    setTimeout(function() {
+      $ionicScrollDelegate.scrollBottom(true);
+    }, 100);
   });
 
   $scope.addMessage = function(event) {

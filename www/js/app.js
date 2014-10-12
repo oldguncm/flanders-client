@@ -21,7 +21,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         $rootScope.messages = results;
         setTimeout(function() {
           $ionicScrollDelegate.scrollBottom(true);
-        }, 200);
+        }, 400);
       }
     });
   }
