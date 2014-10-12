@@ -69,7 +69,7 @@ angular.module('starter.controllers', [])
     $('.tabs').css('height', '0px');
     $('.tabs').css('padding-top', '0px');
     $('.compose').css('bottom', '0px');
-    $('.ionic-scroll.has-header.has-tabs').css('bottom', '140px');
+    $('.ionic-scroll.has-header.has-tabs').css('bottom', '55px');
     setTimeout(function() {
       $ionicScrollDelegate.scrollBottom(true);
     }, 100);
@@ -79,7 +79,7 @@ angular.module('starter.controllers', [])
     $('.tabs').css('height', '75px');
     $('.tabs').css('padding-top', '15px');
     $('.compose').css('bottom', '75px');
-    $('.ionic-scroll.has-header.has-tabs').css('bottom', '175px');
+    $('.ionic-scroll.has-header.has-tabs').css('bottom', '130px');
     setTimeout(function() {
       $ionicScrollDelegate.scrollBottom(true);
     }, 100);
