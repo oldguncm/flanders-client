@@ -1,5 +1,11 @@
 angular.module('starter.controllers', [])
 
+.controller('LoginCtrl', function($scope) {
+  $scope.login = function(username, password) {
+    
+  }
+})
+
 .controller('DashCtrl', function($scope) {
 })
 
