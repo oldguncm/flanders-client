@@ -1,8 +1,27 @@
+.login {
+  padding: 0px 20px;
+}
+.login input {
+  height: 40px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 20px 0px;
+}
+.login .btn-wrapper {
+  width: 260px;
+  margin: 0px auto;
+}
 .login button {
   height: 60px;
 }
 .login button.salesforce {
   background-color: #28b7e5;
+  color: white;
+  font-weight: 600;
+}
+
+* {
+  font-family: 'Varela Round', sans-serif;
 }
 
 .list {
