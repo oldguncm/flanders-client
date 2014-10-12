@@ -66,7 +66,8 @@ angular.module('starter.controllers', [])
         message: $(event.target).find('input').val()
       }
     }).done(function(results) {
-      alert(results);
+      $(event.target).find('input').val('');
+      $('body').focus();
     });
   };
 
