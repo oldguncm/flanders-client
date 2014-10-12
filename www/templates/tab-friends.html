@@ -2,7 +2,11 @@
   <ion-content>
     <ion-list>
       <ion-item ng-repeat="message in messages" type="item-text-wrap">
-        {{message.message}}
+        <img src="http://spacelist.ca/assets/v2/placeholder-user.jpg">
+        <div>
+          <div class="title">Alfred Bumbarner</div>
+          <div class="body">{{message.message}}</div>
+        </div>
       </ion-item>
     </ion-list>
   </ion-content>

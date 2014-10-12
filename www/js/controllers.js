@@ -52,8 +52,9 @@ angular.module('starter.controllers', [])
 
   $('.compose input').focusin(function() {
     $('.tabs').css('height', '0px');
+    $('.tabs').css('padding-top', '0px');
     $('.compose').css('bottom', '0px');
-    $('.ionic-scroll.has-header.has-tabs').css('bottom', '120px');
+    $('.ionic-scroll.has-header.has-tabs').css('bottom', '140px');
     setTimeout(function() {
       $ionicScrollDelegate.scrollBottom(true);
     }, 100);
@@ -61,8 +62,9 @@ angular.module('starter.controllers', [])
 
   $('.compose input').focusout(function() {
     $('.tabs').css('height', '75px');
+    $('.tabs').css('padding-top', '15px');
     $('.compose').css('bottom', '75px');
-    $('.ionic-scroll.has-header.has-tabs').css('bottom', '195px');
+    $('.ionic-scroll.has-header.has-tabs').css('bottom', '175px');
     setTimeout(function() {
       $ionicScrollDelegate.scrollBottom(true);
     }, 100);
