@@ -24,7 +24,7 @@
   font-family: 'Varela Round', sans-serif;
 }
 
-input {
+input, button {
   font-size: 16px !important;
 }
 
@@ -59,7 +59,14 @@ input {
   padding: 30px;
 }
 .compose input {
+  float: left;
   height: 60px;
+  width: calc(100% - 120px);
+}
+.compose button {
+  float: right;
+  height: 60px;
+  width: 110px;
 }
 
 /*# sourceMappingURL=style.css.map */
