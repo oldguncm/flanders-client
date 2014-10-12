@@ -10,18 +10,24 @@ angular.module('starter.controllers', [])
         country: user.address.country,
         name: user.name,
         organization_id: user.organization_id,
-        picture: user.picture
+        picture: user.picture,
+        email: user.email
       }
     });
   };
 
   $scope.login = function(username, password) {
+    $rootScope.username = username;
+    $rootScope.password = password;
+
     $.ajax({
       type: 'POST',
       url: 'http://flanders.herokuapp.com/login',
+      cache: false,
       data: {
         username: username,
         password: password,
+        tokenType: 'password',
         network: $rootScope.network
       }
     }).done(function(results) {
@@ -128,7 +134,7 @@ angular.module('starter.controllers', [])
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('AccountCtrl', function($scope) {
+.controller('AccountCtrl', function($scope, $rootScope) {
   setTimeout(function() {
     $('.ionic-scroll.has-header.has-tabs').css('bottom', '74px');
   }, 100);
