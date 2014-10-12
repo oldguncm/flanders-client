@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
           type: 'POST',
           url: 'http://flanders.herokuapp.com/info',
           data: {
-            access_token: $rootScope.currentUser.token.access_token
+            access_token: token.access_token
           }
         }).done(function(results) {
           if (results.statusCode === 200) {
