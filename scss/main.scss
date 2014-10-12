@@ -1,4 +1,5 @@
 @import "./login";
+@import "./mixins";
 
 * {
   font-family: 'Varela Round', sans-serif;
@@ -12,6 +13,8 @@ $tabHeight: 75px;
 $feedPadding: 30px;
 
 .tabs {
+  @include transition(height);
+
   height: $tabHeight;
   padding-top: 15px;
 }
@@ -32,6 +35,8 @@ $feedPadding: 30px;
 }
 
 .compose {
+  @include transition(bottom);
+
   position: absolute;
   bottom: $tabHeight;
 

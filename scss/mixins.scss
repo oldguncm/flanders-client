@@ -1,0 +1,5 @@
+@mixin transition($transforms) {
+  -webkit-transition: $transforms .2s ease;
+     -moz-transition: $transforms .2s ease;
+          transition: $transforms .2s ease;
+}

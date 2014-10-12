@@ -29,6 +29,9 @@ input {
 }
 
 .tabs {
+  -webkit-transition: height 0.2s ease;
+  -moz-transition: height 0.2s ease;
+  transition: height 0.2s ease;
   height: 75px;
   padding-top: 15px;
 }
@@ -47,6 +50,9 @@ input {
 }
 
 .compose {
+  -webkit-transition: bottom 0.2s ease;
+  -moz-transition: bottom 0.2s ease;
+  transition: bottom 0.2s ease;
   position: absolute;
   bottom: 75px;
   width: 100%;

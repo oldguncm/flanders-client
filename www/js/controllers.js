@@ -43,7 +43,17 @@ angular.module('starter.controllers', [])
 })
 
 .controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
+  // $scope.friends = Friends.all();
+
+  $('.compose input').focusin(function() {
+    $('.tabs').css('height', '0px');
+    $('.compose').css('bottom', '0px');
+  });
+
+  $('.compose input').focusout(function() {
+    $('.tabs').css('height', '75px');
+    $('.compose').css('bottom', '75px');
+  });
 })
 
 .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
