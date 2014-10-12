@@ -1,5 +1,10 @@
-.bar {
-  background-color: red;
+.list {
+  padding: 0px 30px;
+}
+.list .item {
+  margin: 10px 0px;
+  border-radius: 3px;
+  background-image: linear-gradient(#fafafa, #ffffff);
 }
 
 /*# sourceMappingURL=style.css.map */

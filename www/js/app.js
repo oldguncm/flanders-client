@@ -17,7 +17,9 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       url: 'http://flanders.herokuapp.com/messages',
       cache: false
     }).done(function(results) {
-      $rootScope.messages = results;
+      if ($rootScope.messages.length !== results.length) {
+        $rootScope.messages = results;
+      }
     });
   }
 
