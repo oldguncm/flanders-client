@@ -1,5 +1,10 @@
 <ion-view title="{{network}}">
-  <ion-content class="padding">
-    <h1>Dash</h1>
+  <ion-content class="padding users">
+    <div>
+      <ion-item ng-repeat="user in users" type="item-text-wrap">
+        <img src="http://spacelist.ca/assets/v2/placeholder-user.jpg">
+        <h2>{{user.name}}</h2>
+      </ion-item>
+    </div>
   </ion-content>
 </ion-view>

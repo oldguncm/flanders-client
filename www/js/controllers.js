@@ -55,7 +55,10 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('DashCtrl', function($scope) {
+.controller('DashCtrl', function($scope, $rootScope) {
+  setTimeout(function() {
+    $('.ionic-scroll.has-header.has-tabs').css('bottom', '74px');
+  }, 100);
 })
 
 .controller('FriendsCtrl', function($scope, $rootScope, $ionicScrollDelegate, Friends) {
@@ -126,4 +129,7 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
+  setTimeout(function() {
+    $('.ionic-scroll.has-header.has-tabs').css('bottom', '74px');
+  }, 100);
 });
