@@ -33,6 +33,10 @@ input {
   padding-top: 15px;
 }
 
+.ionic-scroll.has-header.has-tabs {
+  bottom: 195px;
+}
+
 .list {
   padding: 0px 30px;
 }
