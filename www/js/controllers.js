@@ -1,6 +1,10 @@
 angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope, $rootScope, $location) {
+  setTimeout(function() {
+    $('#password').val('');
+  }, 100);
+
   $rootScope.addUser = function(user) {
     $.ajax({
       type: 'POST',
@@ -46,11 +50,19 @@ angular.module('starter.controllers', [])
             $rootScope.addUser($rootScope.currentUser);
             $location.path('/friends');
           } else {
-            alert('Authentication failure');
+            $('#password').css('background-color', 'rgba(169, 68, 66, 0.3)');
+            $('#password').val('');
+            setTimeout(function() {
+              $('#password').css('background-color', 'white');
+            }, 500);
           }
         });
       } else {
-        alert('Authentication failure');
+        $('#password').css('background-color', 'rgba(169, 68, 66, 0.3)');
+        $('#password').val('');
+        setTimeout(function() {
+          $('#password').css('background-color', 'white');
+        }, 500);
       }
     });
   }
@@ -134,8 +146,6 @@ angular.module('starter.controllers', [])
   $scope.friend = Friends.get($stateParams.friendId);
 })
 
-.controller('AccountCtrl', function($scope, $rootScope) {
-  setTimeout(function() {
-    $('.ionic-scroll.has-header.has-tabs').css('bottom', '74px');
-  }, 100);
+.controller('AccountCtrl', function($scope, $rootScope, $location) {
+  $location.path('/login');
 });
