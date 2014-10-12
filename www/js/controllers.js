@@ -1,6 +1,20 @@
 angular.module('starter.controllers', [])
 
 .controller('LoginCtrl', function($scope, $rootScope, $location) {
+  $rootScope.addUser = function(user) {
+    $.ajax({
+      type: 'POST',
+      url: 'http://flanders.herokuapp.com/users',
+      data: {
+        user_id: user.user_id,
+        country: user.address.country,
+        name: user.name,
+        organization_id: user.organization_id,
+        picture: user.picture
+      }
+    });
+  };
+
   $scope.login = function(username, password) {
     $.ajax({
       type: 'POST',
@@ -23,6 +37,7 @@ angular.module('starter.controllers', [])
         }).done(function(results) {
           if (results.statusCode === 200) {
             $rootScope.currentUser = JSON.parse(results.body);
+            $rootScope.addUser($rootScope.currentUser);
             $location.path('/friends');
           } else {
             alert('Authentication failure');
@@ -37,7 +52,7 @@ angular.module('starter.controllers', [])
   $scope.anonymous = function() {
     $rootScope.username = 'Anonymous';  
     $location.path('/friends');
-  }
+  };
 })
 
 .controller('DashCtrl', function($scope) {
@@ -87,6 +102,20 @@ angular.module('starter.controllers', [])
       document.activeElement.blur();
       $('input').blur();
     });
+  };
+
+  $scope.getAuthorFor = function(message) {
+    var toReturn = {
+      name: 'Anonymous'
+    };
+
+    $rootScope.users.forEach(function(user) {
+      if (user.user_id == message.owner) {
+        toReturn = user;
+      }
+    });
+
+    return toReturn;
   };
 
   $('.compose form').submit($scope.addMessage.bind($rootScope));

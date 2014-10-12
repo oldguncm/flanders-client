@@ -10,6 +10,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 .run(function($rootScope, $ionicScrollDelegate) {
   $rootScope.network = window.network || 'Hackathon';
 
+  $rootScope.users = [];
   $rootScope.messages = [];
 
   function pollMessages() {
@@ -26,10 +27,22 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     });
   }
 
+  function pollUsers() {
+    $.ajax({
+      url: 'http://flanders.herokuapp.com/users',
+      cache: false
+    }).done(function(results) {
+      if ($rootScope.users.length !== results.length) {
+        $rootScope.users = results;
+      }
+    });
+  }
+
   function continuousPoll() {
     setTimeout(function() {
       $rootScope.$apply(function() {
         pollMessages();
+        pollUsers();
         continuousPoll();
       });
     }, 300);
