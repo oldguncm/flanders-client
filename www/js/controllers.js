@@ -1,8 +1,14 @@
 angular.module('starter.controllers', [])
 
-.controller('LoginCtrl', function($scope) {
+.controller('LoginCtrl', function($scope, $rootScope, $location) {
   $scope.login = function(username, password) {
-    
+    $rootScope.username = username;
+    $location.path('/dash');
+  }
+
+  $scope.anonymous = function() {
+    $rootScope.username = 'Anonymous';  
+    $location.path('/dash');
   }
 })
 

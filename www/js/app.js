@@ -121,6 +121,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     });
 
+  $urlRouterProvider.when('/dash', ['$state', function ($state) {
+    $state.transitionTo('tab.dash');
+  }]);
+
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/login');
 });
